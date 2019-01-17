@@ -29,7 +29,7 @@ public class PartyIndicator {
 
         if (userInput1 == userInput2 && (userInput1 + userInput2) > 20) {
             System.out.println("The party is excellent!");
-        } else if ( (userInput1 + userInput2) >= 20 && userInput1 != userInput2 && userInput1 != 0) {
+        } else if ( (userInput1 + userInput2) >= 20 && userInput1 != userInput2 && userInput1 > 0) {
             System.out.println("Quite a cool party!");
         } else if ((userInput1 + userInput2) < 20) {
             System.out.println("Average party...");
