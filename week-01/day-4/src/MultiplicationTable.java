@@ -25,7 +25,8 @@ public class MultiplicationTable {
         int userInput = scanner.nextInt();
 
         for (int i = 1; i < 11; i++) {
-            System.out.println( userInput*i);
+
+            System.out.println( i + "*" + userInput + "=" + (userInput*i));
         }
 
 
