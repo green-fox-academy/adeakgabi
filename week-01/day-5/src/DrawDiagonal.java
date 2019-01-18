@@ -22,7 +22,6 @@ public class DrawDiagonal {
             for (int k = 0; k < userInput; k++) {
                 if (i == 0 || i == userInput -1){
                     System.out.print("%");
-
                 } else if (k == 0 || k == userInput -1){
                     System.out.print("%");
                 } else if (i == k) {
@@ -32,7 +31,6 @@ public class DrawDiagonal {
                 }
             }
             System.out.println();
-
         }
 
 
