@@ -24,12 +24,11 @@ public class GuessTheNumber {
             }
             System.out.println("Insert a number!");
             userInput = scanner.nextInt();
-
-            if (userInput == a) {
-                System.out.println("You found the number: 8");
-            }
         }
 
+        if (userInput == a) {
+            System.out.println("You found the number: 8");
+        }
 
 
 
