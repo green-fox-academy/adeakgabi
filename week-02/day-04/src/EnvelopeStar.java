@@ -4,23 +4,25 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class LinePlay {
+public class EnvelopeStar {
     public static void mainDraw(Graphics graphics) {
 
-        int lineX = 320;
-        int lineY = 320;
-        int lineXend = 0;
-        int lineYend = 0;
-        for (int i = 0; i < 16; i++) {
-            graphics.setColor(new Color(100, 0, 100));
-            drawLines(lineX - (i*20), lineYend , lineX, lineY -(i*20), graphics);
-            graphics.setColor((new Color(0,200,0)));
-            drawLines(lineXend + (i*20), lineY , lineXend, lineYend + (i*20), graphics);
+
+        int lineStart = 160;
+        int lineEnd = 0;
+        int space = 15;
+        drawLines(lineStart, lineEnd, space, graphics);
+
+
+
+    }public static void drawLines (int lineStart, int lineEnd, int space, Graphics graphics){
+        graphics.setColor((new Color(0,200,0)));
+        for (int i = 0; i < 11; i++) {
+            graphics.drawLine(lineStart - (i*space), lineStart , lineStart, lineEnd + (i*space));
+            graphics.drawLine(lineStart + (i*space), lineStart , lineStart, lineEnd + (i*space));
+            graphics.drawLine(lineStart - (i*space), lineStart , lineStart, lineEnd + 320 - (i*space));
+            graphics.drawLine(lineStart + (i*space), lineStart , lineStart, lineEnd + 320 - (i*space));
         }
-
-    }public static void drawLines (int lineX, int lineY, int lineXend, int lineYend, Graphics graphics){
-
-        graphics.drawLine(lineX, lineY, lineXend, lineYend);
 
 
     }
