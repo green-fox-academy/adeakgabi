@@ -11,6 +11,7 @@ public class EnvelopeStar {
         int lineStart = 160;
         int lineEnd = 0;
         int space = 15;
+
         drawLines(lineStart, lineEnd, space, graphics);
 
 
