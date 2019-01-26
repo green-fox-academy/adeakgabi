@@ -21,9 +21,24 @@ public class DrawDiamond {
         int userInput = scanner.nextInt();
 
         for(int i = 0; i < userInput; i++){
-            for (j = userInput -i; j > 1; j--){
+            for (int j = userInput - i; j > 0; j--){
+                System.out.print(" ");
+            }
+            for (int k = 0; k <= i ; k++){
                 System.out.print(" *");
             }
+            System.out.println();
+
+        }
+        for(int i = 0; i < userInput - 1; i++){
+            for (int j = -1 ; j <= i ; j++){
+                System.out.print(" ");
+            }
+            for (int k = userInput - i - 1 ; k > 0 ; k--){
+                System.out.print(" *");
+            }
+            System.out.println();
+
         }
 
     }
