@@ -15,7 +15,6 @@ public class PrintEachLine {
             for (String line : lines){
                 System.out.println(line);
             }
-
         } catch (Exception ex){
             System.out.println("Unable to read file: my-file.txt");
         }
