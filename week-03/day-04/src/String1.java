@@ -4,18 +4,33 @@
         // lowercase 'x' chars have been changed to 'y' chars.
 
         String wordWithX = "xooxooooox";
-        char from = 'x';
-        char to = 'y';
-        System.out.println(changeXtoY(wordWithX,from,to));
+        System.out.println(changeXtoY(wordWithX));
     }
 
-    public static String changeXtoY (String wordWithX, char from, char to){
+    public static String changeXtoY (String wordWithX){
         if( wordWithX.length() < 1){
             return wordWithX;
         }else {
-            char first = from == wordWithX.charAt(0) ? to : wordWithX.charAt(0);
-            return first + changeXtoY(wordWithX.substring(1), from, to);
+            char check = wordWithX.charAt(0);
+            if(check == 'x'){
+                return "y" + changeXtoY(wordWithX.substring(1));
+            } else {
+                return check + changeXtoY(wordWithX.substring(1));
+            }
         }
 
     }
 }
+
+/*     if (string.length() < 1) {
+
+         return string;
+         } else {
+
+         char check = string.charAt(0);
+
+         if (check == 'x') {
+         return "y" + changeX(string.substring(1));
+         } else {
+
+         return check + changeX(string.substring(1)); */
