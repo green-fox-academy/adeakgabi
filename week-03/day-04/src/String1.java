@@ -18,19 +18,5 @@
                 return check + changeXtoY(wordWithX.substring(1));
             }
         }
-
     }
 }
-
-/*     if (string.length() < 1) {
-
-         return string;
-         } else {
-
-         char check = string.charAt(0);
-
-         if (check == 'x') {
-         return "y" + changeX(string.substring(1));
-         } else {
-
-         return check + changeX(string.substring(1)); */
