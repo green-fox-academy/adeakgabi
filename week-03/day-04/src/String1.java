@@ -4,7 +4,6 @@
         // lowercase 'x' chars have been changed to 'y' chars.
 
         String wordWithX = "xooxooooox";
-        int n = wordWithX.length();
         char from = 'x';
         char to = 'y';
         System.out.println(changeXtoY(wordWithX,from,to));
