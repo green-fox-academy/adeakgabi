@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Logs {
@@ -15,6 +16,7 @@ public class Logs {
 
         String file = "../log.txt";
         returnIPAddresses(file);
+        returnGetPostRatio(file);
     }
 
     public static String[] returnIPAddresses (String file){
@@ -38,18 +40,29 @@ public class Logs {
         try {
             Path filePath = Paths.get(file);
             List<String> lines = Files.readAllLines(filePath);
-            List<String> sortedWords = new ArrayList<>();
+            List <String> getPostColumn = new ArrayList<>();
             List<String> getWord = new ArrayList<>();
+            int numberOfGetWords = 0;
+            int numberOfPostWords = 0;
+            int ratio;
 
             for (int i = 0; i< lines.size(); i++) {
                 String[] splitArray = lines.get(i).split(" ");
-                String getPostColumn = splitArray[11];
-                sortedWords.add(getPostColumn);
-                getWord.sort();
-
+                getPostColumn.add(splitArray[11]);
+                Collections.sort(getPostColumn);
             }
+            for (int i = 0; i < getPostColumn.size(); i++) {
+                if(getPostColumn.equals("get")) {
+                    numberOfGetWords += 1;
+                } else {
+                    numberOfPostWords += 1;
+                }
+            }
+            ratio = numberOfGetWords/numberOfPostWords;
+            return ratio;
 
         } catch (Exception ex){
+            return 0;
         }
     }
 }
