@@ -24,6 +24,8 @@ public class Student extends Person{
 
     public Student(){
         super();
+        previousOrganization = "The School of Life";
+        skippedDays = 0;
     }
 
 }

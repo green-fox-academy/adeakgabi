@@ -6,11 +6,11 @@ public class Mentor extends Person {
     String level;
 
     public void getGoal(){
-        System.out.println("Educate brilliant junior software developers.");
+        System.out.println("My goal is: Educate brilliant junior software developers.");
     }
 
     public void introduce(){
-        System.out.println("Hi, I'm " + name + " , a " + age + " year old " + gender + " , " + level + " mentor.");
+        System.out.println("Hi, I'm " + name + " , a " + age + " year old " + gender + " " + level + " mentor.");
     }
 
     public Mentor(String name, int age, String gender, String level){
@@ -20,6 +20,7 @@ public class Mentor extends Person {
 
     public Mentor(){
         super();
+        level = "intermediate";
     }
 
 }
