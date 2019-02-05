@@ -1,3 +1,5 @@
+package greenfoxinheritance;
+
 import greenfoxinheritance.Person;
 
 public class Mentor extends Person {
