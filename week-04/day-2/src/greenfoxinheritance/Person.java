@@ -1,9 +1,9 @@
 package greenfoxinheritance;
 
 public class Person {
-    String name;
-    int age;
-    String gender;
+    public String name;
+    public int age;
+    public String gender;
 
     public void introduce(){
         System.out.println("Hi, I'm" + name + ", a " + age + " year old "+  gender);
