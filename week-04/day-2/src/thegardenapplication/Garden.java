@@ -9,5 +9,9 @@ public class Garden {
         plants = new ArrayList<>();
     }
 
+    public void add(Plants plant){
+        plants.add(plant);
+    }
+
 
 }

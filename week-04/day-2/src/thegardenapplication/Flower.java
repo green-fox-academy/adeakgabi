@@ -1,7 +1,5 @@
 package thegardenapplication;
 
-import java.util.ArrayList;
-
 public class Flower extends Plants {
 
     public Flower(int waterLevel, String color){
