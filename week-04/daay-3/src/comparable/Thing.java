@@ -19,18 +19,19 @@ public class Thing implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        Thing otherIsCompleted = (Thing) o;
-        if(!this.completed && otherIsCompleted.completed){
+        Thing otherThing = (Thing) o;
+        if(!this.completed && otherThing.completed){
             return 1;
         }
-        if(this.completed ^ !otherIsCompleted.completed){
-            for (int i = 0; i < this.name.length() ; i++) {
-                if(this.name.charAt(i) < otherIsCompleted.name.charAt(i)){
+        if(this.completed ^ !otherThing.completed){
+            /*for (int i = 0; i < this.name.length() ; i++) {
+                if(this.name.charAt(i) < otherThing.name.charAt(i)){
                     return -1;
-                } else if(this.name.charAt(i) > otherIsCompleted.name.charAt(i)){
+                } else if(this.name.charAt(i) > otherThing.name.charAt(i)){
                     return 1;
                 }
-            }
+            } */
+            return this.name.compareTo(otherThing.name);
         }
         return -1;
     }
