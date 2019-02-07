@@ -2,12 +2,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Anagram {
-    String word1;
-    String word2;
-
-    public Anagram(){
-
-    }
 
     public boolean checkIfAnagrams (String word1, String word2){
         if(word1.length() != word2.length()){

@@ -53,12 +53,30 @@ public class FirstTests {
     }
 
     @Test
-    public void checkIfAnagrams_InitializedInput_ReturnTrue(){
+    public void checkIfAnagrams_InitializedInput_ReturnsTrue(){
         Anagram anagram = new Anagram();
         String word1 = "apple";
         String word2 = "paPLe";
         assertTrue(anagram.checkIfAnagrams(word1, word2));
     }
+
+    @Test
+    public void checkIfAnagrams_DifferentLengthWords_ReturnsFalse(){
+        Anagram anagram = new Anagram();
+        String word1 = "appleee";
+        String word2 = "apple";
+        assertFalse(anagram.checkIfAnagrams(word1, word2));
+    }
+
+    @Test
+    public void checkIfAnagrams_WithEmptyStrings_ReturnsTrue(){
+        Anagram anagram = new Anagram();
+        String word1 = "";
+        String word2 = "";
+        assertTrue(anagram.checkIfAnagrams(word1, word2));
+    }
+
+
 
 
 
