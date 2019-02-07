@@ -45,11 +45,11 @@ public class FirstTests {
         assertEquals(109, sum1.getSum(listWithMultipleElements));
     }
 
-    @Test
-    public void getSum_WithNull_ReturnsZero(){
+    @Test (expected = NullPointerException.class)
+    public void getSum_WithNull_ReturnsNullException(){
         Sum sum1 = new Sum();
-        ArrayList<Integer> listWithNull = new ArrayList(Arrays.asList(new Integer[]{0, -0}));
-        assertEquals(0, sum1.getSum(listWithNull));
+        ArrayList<Integer> listWithNull = new ArrayList<>(null);
+        sum1.getSum(listWithNull);
     }
 
 }
