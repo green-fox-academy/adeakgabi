@@ -52,4 +52,14 @@ public class FirstTests {
         sum1.getSum(listWithNull);
     }
 
+    @Test
+    public void checkIfAnagrams_InitializedInput_ReturnTrue(){
+        Anagram anagram = new Anagram();
+        String word1 = "apple";
+        String word2 = "paPLe";
+        assertTrue(anagram.checkIfAnagrams(word1, word2));
+    }
+
+
+
 }

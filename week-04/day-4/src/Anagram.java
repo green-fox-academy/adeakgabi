@@ -5,9 +5,8 @@ public class Anagram {
     String word1;
     String word2;
 
-    public Anagram(String word1, String word2){
-        this.word1 = word1;
-        this.word2 = word2;
+    public Anagram(){
+
     }
 
     public boolean checkIfAnagrams (String word1, String word2){
