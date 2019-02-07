@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 
 public class CountLetters {
     String word;
@@ -7,8 +8,8 @@ public class CountLetters {
         word = "ascdaasdasvbenwne";
     }
 
-    public HashMap<Character, Integer> getDictionary(String useThisString) {
-        HashMap<Character, Integer> stringDictionary = new HashMap<>();
+    public Map<Character, Integer> getDictionary(String useThisString) {
+        Map<Character, Integer> stringDictionary = new HashMap<>();
         for (int i = 0; i < useThisString.length(); i++) {
             if (stringDictionary.containsKey(useThisString.charAt(i))) {
                 int temp = stringDictionary.get(useThisString.charAt(i));
