@@ -25,9 +25,31 @@ public class SecondTest {
         testWithThis.put('b', 3);
         testWithThis.put('l', 3);
         testWithThis.put('a', 3);
-        assertEquals(countLetters.getDictionary("blablabla"), testWithThis);
-
+        assertEquals(testWithThis, countLetters.getDictionary("blablabla"));
     }
+
+    @Test
+    public void getDictionary_CheckHashmapSize(){
+        CountLetters countLetters = new CountLetters();
+        HashMap<Character, Integer> testWithThis = new HashMap<>();
+        assertEquals(3, countLetters.getDictionary("blablabla").size());
+    }
+
+    @Test
+    public void getFibonacci_WithInitializedInput_ReturnsFibonacci(){
+        Fibonacci fibonacci = new Fibonacci();
+        int number = 8;
+        assertEquals(21, fibonacci.getFibonacci(number));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getFibonacci_WithNegativeNumber_ReturnsException(){
+        Fibonacci fibonacci = new Fibonacci();
+        int number = (-2);
+        fibonacci.getFibonacci(number);
+    }
+
+
 
 
 
