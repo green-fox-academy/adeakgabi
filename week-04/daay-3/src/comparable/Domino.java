@@ -1,8 +1,12 @@
 package comparable;
 
+import java.awt.*;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
 import java.util.Arrays;
 
-public class Domino implements Comparable{
+public class Domino implements Comparable, Printable {
     private final int left;
     private final int right;
 
@@ -35,4 +39,12 @@ public class Domino implements Comparable{
         return 0;
     }
 
+    public void printAllFields(Object o){
+        System.out.println(o);
+    }
+
+    @Override
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+        return 0;
+    }
 }

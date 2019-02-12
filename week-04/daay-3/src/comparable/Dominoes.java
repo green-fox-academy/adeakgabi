@@ -11,6 +11,10 @@ import java.util.List;
             // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
             // eg: [2, 4], [4, 3], [3, 5] ...
 
+            for (Domino d : dominoes) {
+                d.printAllFields(d);
+            }
+
             Collections.sort(dominoes);
             System.out.println(dominoes);
         }
