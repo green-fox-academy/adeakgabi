@@ -12,6 +12,11 @@ public class Zoo {
         System.out.println("A " + mammal.getName() + " is breeding by " + mammal.breed());
         System.out.println("A " + bird.getName() + " is breeding by " + bird.breed());
 
+        System.out.println();
+        bird.takeOff();
+        bird.fly();
+        bird.land();
         bird.play();
+
     }
 }
