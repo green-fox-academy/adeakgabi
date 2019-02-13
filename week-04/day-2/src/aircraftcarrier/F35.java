@@ -8,7 +8,8 @@ public class F35 extends Aircraft {
         super.isPriority = isPriority;
     }
 
-    public F35(){
+    public F35(int ammo){
+        super.ammo = ammo;
         super.maxAmmo = 12;
         super.baseDamage = 50;
         super.isPriority = true;

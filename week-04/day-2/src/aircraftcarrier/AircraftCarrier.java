@@ -2,6 +2,7 @@ package aircraftcarrier;
 
 import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AircraftCarrier {
@@ -14,8 +15,13 @@ public class AircraftCarrier {
         this.healthPoint = healthPoint;
     }
 
-    public void add(Aircraft aircraft){    //not working
+    public AircraftCarrier(List<Aircraft> aircraftStore){
+        this.aircraftStore = aircraftStore;
+    }
+
+    public List<Aircraft> add(Aircraft aircraft){    //not working
         aircraftStore.add(aircraft);
+        return aircraftStore;
     }
 
     public int checkHowMuchAmmoTheAircraftsNeed(){
@@ -26,17 +32,40 @@ public class AircraftCarrier {
         return neededAmmo;
     }
 
-  /*  public void fill(){
+    public void fill(){               //not working
+        AircraftCarrier aircraftCarrier = new AircraftCarrier(new ArrayList<Aircraft>());
+        int remainingAmmo = 0;
         try{
-            if(storeOfAmmo > 0){
-
+            if(aircraftCarrier.checkHowMuchAmmoTheAircraftsNeed() < aircraftCarrier.storeOfAmmo){
+                for (int i = 0; i < aircraftStore.size(); i++) {
+                    if (aircraftStore.get(i).isPriority){
+                        remainingAmmo = aircraftStore.get(i).refill(storeOfAmmo);
+                        remainingAmmo = storeOfAmmo;
+                    }
+                }
+            } else {
+                for (int i = 0; i < aircraftStore.size(); i++) {
+                    remainingAmmo = aircraftStore.get(i).refill(storeOfAmmo);
+                    remainingAmmo = storeOfAmmo;
+                }
             }
-
-
-        }catch (Exception e){
+        } catch (Exception e){
             System.out.println("Your strorage is empty, can't refill aircrafts!");
         }
-    } */
+    }
 
+
+
+
+
+
+    @Override
+    public String toString() {
+        String output = "";
+        for (Aircraft aircraft : aircraftStore) {
+            output += aircraft.getType() + "\t";
+        }
+        return output;
+    }
 
 }
