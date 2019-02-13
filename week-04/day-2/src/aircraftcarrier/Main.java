@@ -27,6 +27,5 @@ public class Main {
         System.out.println(f35.ammo);
         System.out.println(aircraftCarrier.storeOfAmmo);
 
-
     }
 }

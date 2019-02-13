@@ -5,24 +5,13 @@ public class Flower extends Plant {
     public Flower (String color){
         super(color);
         super.name = "Flower";
-        super.needsWater = true;
-        super.currentWaterAmount = 0;
     }
 
-    public Flower(int currentWaterAmount, int waterAbsorb, boolean needsWater){
-        super(currentWaterAmount, waterAbsorb, needsWater);
-    }
-
-    public boolean checkingIfThirsty(){
+    @Override
+    public void getWater(int water){
+        currentWaterAmount += water * 0.75;
         if(currentWaterAmount > 5){
             needsWater = false;
         }
-        return needsWater;
     }
-
-    public int watering(){
-    }
-
-
-
 }
