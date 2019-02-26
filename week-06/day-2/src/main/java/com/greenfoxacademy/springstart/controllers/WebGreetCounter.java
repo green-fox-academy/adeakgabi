@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class WebGreetCounter {
     AtomicLong atomicLong = new AtomicLong();
 
+    /*
     @RequestMapping("/web/greeting")
     public String greeting(Model model, @RequestParam("name") String name) {
         model.addAttribute("name", name);
@@ -18,4 +19,5 @@ public class WebGreetCounter {
 
         return "greeting";
     }
+    */
 }
