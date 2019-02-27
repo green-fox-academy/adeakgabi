@@ -1,0 +1,55 @@
+body {
+    padding: 30px;
+    width: 330px;
+}
+
+input {
+    width: 300px;
+    padding: 12px;
+    border-radius: 2px;
+    opacity: 0.3;
+}
+
+input:focus{
+    outline: none;
+    border:2px solid green;
+}
+
+#userPassword {
+    background: url("./eye.png") no-repeat;
+    background-size: 20px;
+    background-position: right;
+}
+
+#submit {
+    padding: 10px;
+    border-radius: 40px;
+    width: 100px;
+    background-color: rgb(70, 70, 70);
+    color: white;
+    border: none;
+    opacity: 1;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-weight: 1;
+    text-transform: uppercase;
+    font-size: 24px;
+    padding-bottom: 20px;
+    color: rgb(56, 56, 56);
+}
+
+.label {
+    text-transform: uppercase;
+    font-size: 10px;
+    margin: 0px, 5px;
+    color: rgb(56, 56, 56);
+}
+
+#forgotpw {
+    text-align: right;
+    font-size: 10px;
+}
+
+
