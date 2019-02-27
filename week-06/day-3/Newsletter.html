@@ -14,7 +14,7 @@
 <body>
     <form method="POST" action="https://newsletter-ws.herokuapp.com/signup">
         <p class="label" for = "Name">Name</p>
-        <input type="text" name="Name">
+        <input type="text" name="Name" required pattern="^[A-Z][a-zA-Z]{3,}(?: [A-Z][a-zA-Z]*){1,2}$">
         <p class="label" for = "email">Email</p>
         <input type="email" name="Email">
         <input type="submit">
