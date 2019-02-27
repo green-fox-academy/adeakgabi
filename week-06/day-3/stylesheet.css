@@ -1,0 +1,35 @@
+table {
+    width: 40%;
+    border: 20px, solid, blue;
+}
+
+table, th, td {
+    border: 2px solid grey;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 20px;
+}
+
+th {
+    background-color: black;
+    color: rgb(221, 221, 221);
+    font-family: sans-serif;
+    font-weight: 1;
+    font-size: 26px;
+    font-stretch: extra-expanded;
+    text-align: left;
+}
+
+td {
+    color: rgb(94, 94, 94);
+    font-family: sans-serif;
+    font-weight: 1;
+    font-size: 22px;
+    font-stretch: extra-expanded;   
+}
+
+tr:nth-child(even){
+    background-color: rgb(218, 218, 218);
+}
