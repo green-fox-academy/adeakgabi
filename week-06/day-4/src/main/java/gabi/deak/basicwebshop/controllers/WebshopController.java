@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class WebshopController {
@@ -24,9 +25,35 @@ public class WebshopController {
         shopItemList.add(new ShopItem("T-shirt", "Blue with a corgi on a bike", 300.0, 1));
     }
 
+  /*  public ArrayList<ShopItem> getOnlyAvailableItems (){
+        ArrayList<ShopItem> onlyAvailableItems = new ArrayList<>();
+        for (ShopItem item : shopItemList) {
+            if(item.getQuantityOfStock() != 0){
+                onlyAvailableItems.add(item);
+            }
+        }
+        return onlyAvailableItems;
+    }  */
+
+    public ArrayList<ShopItem> getOnlyAvailableItems (){
+        ArrayList<ShopItem> availableItems = shopItemList.stream()
+                    .filter(i -> i.getQuantityOfStock() != 0).collect(Collectors.toCollection(ArrayList::new));
+
+        return availableItems;
+    }
+
     @RequestMapping("/home")
     public String setFields (Model model) {
         model.addAttribute("items", shopItemList);
         return "index";
     }
+
+    @RequestMapping("/only-available")
+    public String showOnlyAvailableItem (Model model) {
+        model.addAttribute("items", getOnlyAvailableItems());
+        return "index";
+    }
+
+
+
 }

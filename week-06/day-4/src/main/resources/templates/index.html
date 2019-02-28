@@ -28,8 +28,8 @@
         <tr th:each="item : ${items}">
             <td th:text="${item.getName()}"></td>
             <td th:text="${item.getDescription()}"></td>
-            <td th:text="${item.getPrice()}"></td>
-            <td th:text="${item.getQuantityOfStock()}"></td>
+            <td id = "price" th:text="${item.getPrice()}"> </td>
+            <td id = "quantity" th:text="${item.getQuantityOfStock()}"></td>
         </tr>
 
 
