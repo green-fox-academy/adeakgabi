@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Basic Webshop</title>
@@ -17,6 +17,19 @@
     <input type="submit" class = "button-bar" id="Most expensive available" value = "Most expensive available">
     </form>
 </header>
+
+    <table>
+        <tr>
+            <th> Name </th>
+            <th> Description </th>
+            <th> Price </th>
+            <th> Quantity of stock </th>
+        </tr>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.getName()}"></td>
+        </tr>
+
+    </table>
 
 </body>
 </html>
