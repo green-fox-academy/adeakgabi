@@ -9,13 +9,24 @@
 <body>
 <header>
     <h1> My shop </h1>
-    <form method="POST">
-        <input type="submit" class = "button-bar" id="Only available" value = "Only available">
-        <input type="submit" class = "button-bar" id="Cheapest first" value = "Cheapest first">
-        <input type="submit" class = "button-bar" id="Contains nike" value = "Contains nike">
-        <input type="submit" class = "button-bar" id="Average stock" value = "Average stock">
-        <input type="submit" class = "button-bar" id="Most expensive available" value = "Most expensive available">
-    </form>
+    <div id = "buttons">
+        <form method="get" action="/only-available">
+            <input type="submit" class = "button-bar" id="Only available" value = "Only available">
+        </form>
+        <form method="get" action="/home">
+            <input type="submit" class = "button-bar" id="Cheapest first" value = "Cheapest first">
+        </form>
+        <form method="get" action="/home">
+            <input type="submit" class = "button-bar" id="Contains nike" value = "Contains nike">
+        </form>
+        <form method="get" action="/home">
+            <input type="submit" class = "button-bar" id="Average stock" value = "Average stock">
+        </form>
+        <form method="get" action="/home">
+            <input type="submit" class = "button-bar" id="Most expensive available" value = "Most expensive available">
+        </form>
+    </div>
+
 </header>
 
     <table>

@@ -25,16 +25,6 @@ public class WebshopController {
         shopItemList.add(new ShopItem("T-shirt", "Blue with a corgi on a bike", 300.0, 1));
     }
 
-  /*  public ArrayList<ShopItem> getOnlyAvailableItems (){
-        ArrayList<ShopItem> onlyAvailableItems = new ArrayList<>();
-        for (ShopItem item : shopItemList) {
-            if(item.getQuantityOfStock() != 0){
-                onlyAvailableItems.add(item);
-            }
-        }
-        return onlyAvailableItems;
-    }  */
-
     public ArrayList<ShopItem> getOnlyAvailableItems (){
         ArrayList<ShopItem> availableItems = shopItemList.stream()
                     .filter(i -> i.getQuantityOfStock() != 0).collect(Collectors.toCollection(ArrayList::new));

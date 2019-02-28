@@ -14,7 +14,7 @@ header {
     position: relative;
 }
 
-form {
+#buttons {
     width:100%;
     display:flex;
     flex-direction:row;
