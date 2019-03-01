@@ -16,25 +16,11 @@
         <a href="/average-stock" role="button" aria-pressed="false" class = "button-bar" id="Average stock" > Average stock </a>
         <a href="/home" role="button" aria-pressed="false" class = "button-bar" id="Most expensive available"> Most expensive available</a>
     </form>
+    <div id="stock average">
+        <form method="get" action="/average-stock" >
+            <p th:text=" ${items} "/>
+        </form>
+    </div>
 </header>
-
-    <table>
-        <tr>
-            <th> Name </th>
-            <th> Description </th>
-            <th> Price </th>
-            <th> Quantity of stock </th>
-        </tr>
-        <tr th:each="item : ${items}">
-            <td th:text="${item.getName()}"></td>
-            <td th:text="${item.getDescription()}"></td>
-            <td id = "price" th:text="${item.getPrice()}"> </td>
-            <td id = "quantity" th:text="${item.getQuantityOfStock()}"></td>
-        </tr>
-
-
-
-    </table>
-
 </body>
 </html>

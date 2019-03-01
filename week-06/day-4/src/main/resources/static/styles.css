@@ -24,10 +24,6 @@ a:link {
     text-decoration: none;
 }
 
-a:active {
-    color: purple;
-}
-
 .button-bar {
     text-transform: uppercase;
     font-family: sans-serif;
@@ -92,4 +88,9 @@ td {
 
 #Most\ expensive\ available {
     margin-right: 0px;
+}
+
+#stock\ average {
+    font-size: 36px;
+    font-weight: bold;
 }

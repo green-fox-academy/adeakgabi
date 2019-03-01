@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 @Controller
@@ -47,6 +48,13 @@ public class WebshopController {
         return nikeItems;
     }
 
+    public String getAverage (){
+        Double averageStock = shopItemList.stream()
+                            .mapToInt(i -> i.getQuantityOfStock()).average().getAsDouble();
+
+        return "Average Stock: " + averageStock;
+    }
+
     @RequestMapping("/home")
     public String setFields (Model model) {
         model.addAttribute("items", shopItemList);
@@ -70,6 +78,14 @@ public class WebshopController {
         model.addAttribute("items", getCheapestFirst());
         return "index";
     }
+
+    @RequestMapping("/average-stock")
+    public String showAverageOfStock (Model model) {
+        model.addAttribute("items", getAverage());
+        return "different-header";
+    }
+
+
 
 
 
