@@ -55,6 +55,13 @@ public class WebshopController {
         return "Average Stock: " + averageStock;
     }
 
+    public String getMostExpensiveItem (){
+        String nameOfMostExpensiveItem = shopItemList.stream()
+                .sorted().collect(Collectors.toCollection(ArrayList::new)).get(shopItemList.size()-1).getName();
+
+        return nameOfMostExpensiveItem;
+    }
+
     @RequestMapping("/home")
     public String setFields (Model model) {
         model.addAttribute("items", shopItemList);
@@ -82,6 +89,12 @@ public class WebshopController {
     @RequestMapping("/average-stock")
     public String showAverageOfStock (Model model) {
         model.addAttribute("items", getAverage());
+        return "different-header";
+    }
+
+    @RequestMapping("/most-expensive")
+    public String showMostExpensiveItemName (Model model) {
+        model.addAttribute("items", getMostExpensiveItem());
         return "different-header";
     }
 
