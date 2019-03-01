@@ -30,7 +30,6 @@ public class ShopItem implements Comparable<ShopItem> {
         return this.quantityOfStock;
     }
 
-
     @Override
     public int compareTo(ShopItem item) {
         return Integer.compare((int)this.price,(int)item.getPrice());
