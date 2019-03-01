@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,20 @@ public class WebshopController {
         return availableItems;
     }
 
+    public ArrayList<ShopItem> getCheapestFirst (){
+        ArrayList<ShopItem> cheapestFirst = shopItemList.stream()
+                .sorted().collect(Collectors.toCollection(ArrayList::new));
+
+        return cheapestFirst;
+    }
+
+    public ArrayList<ShopItem> containsNike (){
+        ArrayList<ShopItem> nikeItems = shopItemList.stream()
+                .filter(i -> i.getDescription().toLowerCase().contains("nike") || i.getName().toLowerCase().contains("nike")).collect(Collectors.toCollection(ArrayList::new));
+
+        return nikeItems;
+    }
+
     @RequestMapping("/home")
     public String setFields (Model model) {
         model.addAttribute("items", shopItemList);
@@ -41,6 +56,12 @@ public class WebshopController {
     @RequestMapping("/only-available")
     public String showOnlyAvailableItem (Model model) {
         model.addAttribute("items", getOnlyAvailableItems());
+        return "index";
+    }
+
+    @RequestMapping("/contains-nike")
+    public String showIfContainsNike (Model model) {
+        model.addAttribute("items", containsNike());
         return "index";
     }
 

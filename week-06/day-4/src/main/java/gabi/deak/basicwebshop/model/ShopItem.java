@@ -1,6 +1,6 @@
 package gabi.deak.basicwebshop.model;
 
-public class ShopItem {
+public class ShopItem implements Comparable<ShopItem> {
 
     private String name;
     private String description;
@@ -31,4 +31,9 @@ public class ShopItem {
     }
 
 
+    @Override
+    public int compareTo(ShopItem item) {
+        return Integer.compare((int)this.price,(int)item.getPrice());
+
+    }
 }

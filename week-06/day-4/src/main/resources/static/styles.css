@@ -14,10 +14,18 @@ header {
     position: relative;
 }
 
-#buttons {
+form {
     width:100%;
     display:flex;
     flex-direction:row;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:active {
+    color: purple;
 }
 
 .button-bar {
@@ -28,14 +36,10 @@ header {
     background-color: red;
     color: white;
     border: none;
-    font-size: 16px;
+    font-size: 10px;
     opacity: 0.8;
     margin: 10px;
     flex-grow:1;
-}
-
-#Most expensive available {
-    padding-right: 0px;
 }
 
 body {
