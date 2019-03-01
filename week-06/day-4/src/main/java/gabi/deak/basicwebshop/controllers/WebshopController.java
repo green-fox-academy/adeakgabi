@@ -65,6 +65,12 @@ public class WebshopController {
         return "index";
     }
 
+    @RequestMapping("/cheapest-first")
+    public String showCheapestFirst (Model model) {
+        model.addAttribute("items", getCheapestFirst());
+        return "index";
+    }
+
 
 
 }

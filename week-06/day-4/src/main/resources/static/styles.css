@@ -36,7 +36,8 @@ a:active {
     background-color: red;
     color: white;
     border: none;
-    font-size: 10px;
+    font-size: 14px;
+    font-weight: bold;
     opacity: 0.8;
     margin: 10px;
     flex-grow:1;
@@ -52,7 +53,7 @@ th {
     border-right: 1px solid white;
     font-family: sans-serif;
     font-size: 22px;
-    padding: 20px;
+    padding: 30px;
 }
 
 table {
@@ -75,8 +76,20 @@ td {
     text-align: center;
 }
 
+#price::after{
+    content: ' Kč';
+}
+
 #quantity {
     text-align: center;
     font-weight: bold;
     font-size: 24px;
+}
+
+#Only\ available {
+    margin-left: 0px;
+}
+
+#Most\ expensive\ available {
+    margin-right: 0px;
 }
