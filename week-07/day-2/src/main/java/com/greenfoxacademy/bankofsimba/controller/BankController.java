@@ -16,6 +16,11 @@ public class BankController {
 
     public BankController(){
         bankAccounts.add(new BankAccount("Simba", 2000, "lion"));
+        bankAccounts.add(new BankAccount("Pumba", 1000, "warthog"));
+        bankAccounts.add(new BankAccount("Timon", 500, "meerkat"));
+        bankAccounts.add(new BankAccount("Mufasa", 2500, "lion"));
+        bankAccounts.add(new BankAccount("Scar", 3000, "lion"));
+        bankAccounts.add(new BankAccount("Nala", 2100, "lion"));
     }
 
     BankAccount bankAccount1 = new BankAccount("Simba", 2000, "lion");
@@ -24,6 +29,17 @@ public class BankController {
     public String showBankAccount (Model model){
         model.addAttribute("bankAccount1", bankAccount1);
         return "index";
+    }
+
+    @RequestMapping("/text")
+    public String displayString (Model model){
+       model.addAttribute("formatted",  "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>");
+      return "displayString";
+    }
+
+    @RequestMapping("/list")
+    public String listAccounts (Model model){
+        model
     }
 
 }
