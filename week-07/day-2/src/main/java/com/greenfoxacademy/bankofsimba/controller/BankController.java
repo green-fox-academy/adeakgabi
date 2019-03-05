@@ -23,11 +23,9 @@ public class BankController {
         bankAccounts.add(new BankAccount("Nala", 2100, "lion"));
     }
 
-    BankAccount bankAccount1 = new BankAccount("Simba", 2000, "lion");
-
     @RequestMapping(path = "/show", method = RequestMethod.GET)
     public String showBankAccount (Model model){
-        model.addAttribute("bankAccount1", bankAccount1);
+        model.addAttribute("bankAccount1", bankAccounts.get(0));
         return "index";
     }
 
@@ -39,7 +37,8 @@ public class BankController {
 
     @RequestMapping("/list")
     public String listAccounts (Model model){
-        model
+        model.addAttribute("items", bankAccounts);
+        return "listAccounts";
     }
 
 }

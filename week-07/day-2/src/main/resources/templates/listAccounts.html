@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Thymeleaf Exercise #</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
     <meta charset="utf-8" />
 </head>
 <body>
-<div th:with="balanceWithCurrency = ${#numbers.formatDecimal(bankAccount1.balance, 0, 2, 'POINT')} + ' Zebra'">
-    <h1 th:text="${bankAccount1.name} + ' - ' + ${balanceWithCurrency} + ' (' + ${bankAccount1.animalType} + ') '"></h1>
-</div>
+<table>
+    <tr th:each="item : ${items}">
+        <td th:text="${itemStat.count} + ' ' + ${item.name}"></td>
+        <td th:text="${item.balance}"></td>
+        <td th:text="${item.animalType}"> </td>
+    </tr>
+</table>
 </body>
 </html>
 
