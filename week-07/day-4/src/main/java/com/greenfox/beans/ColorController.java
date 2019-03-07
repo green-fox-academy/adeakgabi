@@ -42,7 +42,13 @@ public class ColorController {
         return "caesar";
     }
 
-    
+    @RequestMapping("useful/decode")
+    public String decodeCaesar (Model model, @RequestParam("text") String text, @RequestParam("number") int number, UtilityService utilityService){
+        model.addAttribute("text", utilityService.caesar(text, -number));
+        return "caesar";
+    }
+
+
 
 
 }
