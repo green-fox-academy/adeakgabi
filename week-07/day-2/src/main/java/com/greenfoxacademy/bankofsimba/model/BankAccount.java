@@ -4,6 +4,7 @@ public class BankAccount {
     private String name;
     private int balance;
     private String animalType;
+    private Boolean isKing = false;
 
     public BankAccount(String name, int balance, String animalType){
         this.name = name;
@@ -21,6 +22,12 @@ public class BankAccount {
 
     public String getAnimalType(){
         return this.animalType;
+    }
+
+    public void setIsKing(){
+        if(this.name.equals("Simba")){
+            this.isKing = true;
+        }
     }
 }
 
