@@ -36,5 +36,13 @@ public class ColorController {
         return "email";
     }
 
+    @RequestMapping("useful/encode")
+    public String encodeCaesar (Model model, @RequestParam("text") String text, @RequestParam("number") int number, UtilityService utilityService){
+        model.addAttribute("text", utilityService.caesar(text, number));
+        return "caesar";
+    }
+
+    
+
 
 }
