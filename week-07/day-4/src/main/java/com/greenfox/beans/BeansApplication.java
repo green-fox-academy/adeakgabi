@@ -9,10 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BeansApplication implements CommandLineRunner {
 
     private Printer printer;
+    private MyColor myColor;
 
     @Autowired
-    BeansApplication(Printer printer) {
-        this.printer = printer;
+    BeansApplication(MyColor myColor){
+            this.myColor = myColor;
     }
 
     public static void main(String[] args) {
@@ -21,6 +22,6 @@ public class BeansApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        printer.log("hello");
+        myColor.printColor();
     }
 }
