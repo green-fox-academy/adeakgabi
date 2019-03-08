@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>
+        <a href=""> Information </a>
+    </li>
+</ul>
+
+<img src="../static/greenfox.png" th:src="@{greenfox.png}" alt="greenfox logo">
+<p th:text= "'This is ' + ${name} + '. ' + 'Currently living on ' + ${food} + '. He knows ' + ${tricks} + ' tricks.' " > </p>
+
+<div>
+    <h1> Known tricks </h1>
+    <ul>
+        <li>
+            <a href=""> Write HTML </a>
+        </li>
+        <li>
+            <a href=""> Code in Java </a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
