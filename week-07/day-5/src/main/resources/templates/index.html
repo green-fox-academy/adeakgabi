@@ -14,6 +14,13 @@
 <img src="../static/greenfox.png" th:src="@{greenfox.png}" alt="greenfox logo">
 <p th:text= "'This is ' + ${name} + '. ' + 'Currently living on ' + ${food} + '. He knows ' + ${tricks} + ' tricks.' " > </p>
 
+<form method="GET" action="/update">
+    Name <input type="text" name="name" th:value= "${name}" readonly>
+    Food <input type="text" name="food" th:value= "${food}">
+    Add A Trick <input type="text" name="tricks">
+    <input type="submit" value="UPDATE" formmethod="post" formaction="/update">
+</form>
+
 <div>
     <h1> Known tricks </h1>
     <ul>
