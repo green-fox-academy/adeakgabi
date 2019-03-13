@@ -1,6 +1,6 @@
-package com.greenfox.error.model.service;
+package com.greenfox.error.finder.service;
 
-import com.greenfox.error.model.User;
+import com.greenfox.error.finder.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
-package com.greenfox.error.model.controller;
+package com.greenfox.error.finder.controller;
 
-import com.greenfox.error.model.service.UserService;
-import com.greenfox.error.model.User;
+import com.greenfox.error.finder.service.UserService;
+import com.greenfox.error.finder.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
