@@ -20,6 +20,11 @@ public class TodoService {
     }
 
 
+    public Todo getTodo(Long id) {
+        Todo todo = todoRepository.findById(id).get();
+        return todo;
+    }
+
     public List<Todo> getAllTodo() {
         List<Todo> todos = new ArrayList<>();
         todoRepository.findAll().forEach(todo -> todos.add(todo));
@@ -43,5 +48,13 @@ public class TodoService {
 
     public void deleteTodo(Long id){
         todoRepository.deleteById(id);
+    }
+
+    public void updateTodo(Todo todo){
+        Todo todoWithUpdatedInfo = todoRepository.findById(todo.getId()).get();
+        todoWithUpdatedInfo.setTitle(todo.getTitle());
+        todoWithUpdatedInfo.setDone(todo.getDone());
+        todoWithUpdatedInfo.setUrgent(todo.getUrgent());
+        todoRepository.save(todoWithUpdatedInfo);
     }
 }
