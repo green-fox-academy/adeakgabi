@@ -5,11 +5,27 @@
     <title> Reddit </title>
 </head>
 <body>
-<h1> Trending posts: </h1>
+<a th:href="@{'/submit'}"> Submit new post </a>
+
+<h1 style="text-align: center">  <br>  Trending posts: </h1>
+
+<table>
 <tr th:each="post : ${posts}" >
     <td th:text="${post.vote}"></td>
-    <td th:text="${post.title}"></td>
+    <td>
+        <form action="#" th:action="@{${post.id} + '/up'}" th:method="post" th:object="${post}">
+            <input type="submit" value="+" th:field="*{vote}">
+        </form>
+    </td>
+    <td>
+        <form action="#" th:action="@{${post.id} + '/down'}" th:method="post" th:object="${post}">
+            <input type="submit" value="-" th:field="*{vote}">
+        </form>
+    </td>
+    <td>
+    <a th:href="@{${post.url}}" th:text="${post.title}"  > Submit new post </a>
+    </td>
 </tr>
-
+</table>
 </body>
 </html>

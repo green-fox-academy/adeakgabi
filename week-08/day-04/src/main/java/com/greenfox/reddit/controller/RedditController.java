@@ -18,7 +18,7 @@ public class RedditController {
         this.redditService = redditService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping(value = "/")
     public String reddit (Model model){
         model.addAttribute("posts", redditService.getAllPosts());
         return "index";
@@ -33,6 +33,24 @@ public class RedditController {
     @PostMapping("/submit")
     public String postTodos(@ModelAttribute Post post){
         redditService.addPost(post);
+        return "redirect:/";
+    }
+
+    @GetMapping(value = "/{id}")
+    public String getVote(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("post", redditService.getPost(id));
+        return "index";
+    }
+
+    @PostMapping(value = "/{id}/up")
+    public String upVote(@ModelAttribute Post post) {
+        redditService.upVote(post);
+        return "redirect:/";
+    }
+
+    @PostMapping(value = "/{id}/down")
+    public String downVote(@ModelAttribute Post post) {
+        redditService.downVote(post);
         return "redirect:/";
     }
 }

@@ -18,6 +18,11 @@ public class RedditService {
         this.postRepository = postRepository;
     }
 
+    public Post getPost(Long id){
+        Post post = postRepository.findById(id).orElseThrow(NullPointerException::new);
+        return post;
+    }
+
     public List<Post> getAllPosts(){
         List<Post> posts = new ArrayList<>();
         postRepository.findAll().forEach(post -> posts.add(post));
@@ -26,6 +31,18 @@ public class RedditService {
 
     public void addPost(Post post){
         postRepository.save(post);
+    }
+
+    public void upVote(Post post){
+        Post postWithUpdatedVote = postRepository.findById(post.getId()).get();
+        postWithUpdatedVote.setVote(post.getVote() +1);
+        postRepository.save(postWithUpdatedVote);
+    }
+
+    public void downVote(Post post){
+        Post postWithUpdatedVote = postRepository.findById(post.getId()).get();
+        postWithUpdatedVote.setVote(post.getVote() -1);
+        postRepository.save(postWithUpdatedVote);
     }
 
 
