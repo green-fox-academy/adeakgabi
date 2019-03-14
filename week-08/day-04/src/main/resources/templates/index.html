@@ -14,7 +14,7 @@
     <td th:text="${post.vote}"></td>
     <td>
         <form action="#" th:action="@{${post.id} + '/up'}" th:method="post" th:object="${post}">
-            <input type="submit" value="+" th:field="*{vote}">
+             <input type="submit" value="+" th:field="*{vote}">
         </form>
     </td>
     <td>
