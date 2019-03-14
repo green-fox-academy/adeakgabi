@@ -43,14 +43,14 @@ public class RedditController {
     }
 
     @PostMapping(value = "/{id}/up")
-    public String upVote(@ModelAttribute Post post) {
-        redditService.upVote(post);
+    public String upVote(@PathVariable("id") Long id) {
+        redditService.upVote(id);
         return "redirect:/";
     }
 
     @PostMapping(value = "/{id}/down")
-    public String downVote(@ModelAttribute Post post) {
-        redditService.downVote(post);
+    public String downVote(@PathVariable("id") Long id) {
+        redditService.downVote(id);
         return "redirect:/";
     }
 }

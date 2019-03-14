@@ -33,15 +33,15 @@ public class RedditService {
         postRepository.save(post);
     }
 
-    public void upVote(Post post){
-        Post postWithUpdatedVote = postRepository.findById(post.getId()).get();
-        postWithUpdatedVote.setVote(post.getVote() +1);
+    public void upVote(Long id){
+        Post postWithUpdatedVote = postRepository.findById(id).get();
+        postWithUpdatedVote.setVote(postWithUpdatedVote.getVote() +1);
         postRepository.save(postWithUpdatedVote);
     }
 
-    public void downVote(Post post){
-        Post postWithUpdatedVote = postRepository.findById(post.getId()).get();
-        postWithUpdatedVote.setVote(post.getVote() -1);
+    public void downVote(Long id){
+        Post postWithUpdatedVote = postRepository.findById(id).get();
+        postWithUpdatedVote.setVote(postWithUpdatedVote.getVote() -1);
         postRepository.save(postWithUpdatedVote);
     }
 
