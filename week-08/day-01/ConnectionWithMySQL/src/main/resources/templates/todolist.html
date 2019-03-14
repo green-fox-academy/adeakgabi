@@ -21,12 +21,12 @@
             <td th:text="${todo.done}"> </td>
             <td th:text="${todo.urgent}"></td>
             <td>
-                <form action="#" th:action="@{'/'+${todo.id}+'/delete'}" th:method="delete">
+                <form action="#" th:action="@{'/todo/'+${todo.id}+'/delete'}" th:method="delete">
                     <input type="submit" value="DELETE">
                 </form>
             </td>
             <td>
-                <form action="#" th:action="@{'/'+${todo.id}+'/edit'}" th:method="get">
+                <form action="#" th:action="@{'/todo/'+${todo.id}+'/edit'}" th:method="get">
                     <input type="submit" value="EDIT">
                 </form>
             </td>
