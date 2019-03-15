@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
-    <link href="/styles.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
-<body>
+<body class="container-fluid" >
+<header style="text-align: center">
+    <h1 style="text-transform: uppercase"> Todos for today </h1>
+    <form action="#" th:action="@{'/todo/add'}" th:method="get">
+        <input type="submit" class="btn btn-warning" value="Add new todo">
+    </form>
+</header>
 <div id="table">
-    <h1> Todos for today: </h1>
+
     <table>
         <tr>
             <th> Id </th>
@@ -16,23 +23,25 @@
             <th> Urgent </th>
         </tr>
         <tr th:each="todo : ${todos}" >
-            <td th:text="${todo.id}"></td>
-            <td th:text="${todo.title}"></td>
-            <td th:text="${todo.done}"> </td>
-            <td th:text="${todo.urgent}"></td>
-            <td>
+            <td class="col-md-1" th:text="${todo.id}"></td>
+            <td class="col-md-5" th:text="${todo.title}"></td>
+            <td class="col-md-1" th:text="${todo.done}"> </td>
+            <td class="col-md-1" th:text="${todo.urgent}"></td>
+            <td class="col-md-2">
                 <form action="#" th:action="@{'/todo/'+${todo.id}+'/delete'}" th:method="delete">
-                    <input type="submit" value="DELETE">
+                    <input type="submit" class="btn btn-danger" value="delete">
                 </form>
             </td>
-            <td>
+            <td class="col-md-2">
                 <form action="#" th:action="@{'/todo/'+${todo.id}+'/edit'}" th:method="get">
-                    <input type="submit" value="EDIT">
+                    <input type="submit" class="btn btn-primary" value="edit">
                 </form>
             </td>
         </tr>
     </table>
 </div>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>
 
