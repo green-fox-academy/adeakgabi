@@ -1,5 +1,6 @@
 package com.greenfox.frontendexcercise.service;
 
+import org.omg.CORBA.INTERNAL;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -44,4 +45,31 @@ public class MyService {
     }
 
 
+    public Map<String, Integer> sumOfNumbers(Integer[] numbers) {
+        Map<String, Integer> sumResult = new HashMap<>();
+        Integer result = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            result += numbers[i];
+        }
+        sumResult.put("result", result);
+        return sumResult;
+    }
+
+    public Map<String, Integer> multipliedNumbers(Integer[] numbers) {
+        Map<String, Integer> multipliedNumbers = new HashMap<>();
+        Integer result = 1;
+        for (int i = 0; i < numbers.length; i++) {
+            result = result * numbers[i];
+        }
+        multipliedNumbers.put("result", result);
+        return multipliedNumbers;
+    }
+
+    public Integer[] doubleAllNumbers(Integer[] numbers) {
+        Integer[] doubledNumbers = new Integer [numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            doubledNumbers[i] = numbers[i]*2;
+        }
+        return doubledNumbers;
+    }
 }

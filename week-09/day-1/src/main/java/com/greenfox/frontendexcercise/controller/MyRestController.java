@@ -2,9 +2,11 @@ package com.greenfox.frontendexcercise.controller;
 
 import com.greenfox.frontendexcercise.error.ErrorMessage;
 import com.greenfox.frontendexcercise.model.AppendA;
+import com.greenfox.frontendexcercise.model.Arrayss;
 import com.greenfox.frontendexcercise.service.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -36,7 +38,6 @@ public class MyRestController {
         } else if(title == null){
             return new ErrorMessage("Please provide a title!");
         }
-
         return myService.greetUser(name, title);
     }
 
@@ -58,6 +59,18 @@ public class MyRestController {
             return myService.doUntilSum(doUntil);
         }
         return new ErrorMessage("Please provide a number!");
+    }
+
+    @PostMapping(value = "/arrays")
+    public Object arrayHandler (@RequestBody Arrayss arrayss){
+        if(arrayss.getWhat().equals("sum")){
+            return myService.sumOfNumbers(arrayss.getNumbers());
+        } else if(arrayss.getWhat().equals("multiply")){
+            return myService.multipliedNumbers(arrayss.getNumbers());
+        } else if(arrayss.getWhat().equals("double")){
+            return myService.doubleAllNumbers(arrayss.getNumbers());
+        }
+        return new ErrorMessage("Please provide what to do with the numbers!");
     }
 
 }
