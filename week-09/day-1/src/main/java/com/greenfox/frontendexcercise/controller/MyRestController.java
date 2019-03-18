@@ -4,6 +4,7 @@ import com.greenfox.frontendexcercise.error.ErrorMessage;
 import com.greenfox.frontendexcercise.model.AppendA;
 import com.greenfox.frontendexcercise.service.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -42,5 +43,9 @@ public class MyRestController {
         return new AppendA(word);
     }
 
-    
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @GetMapping("/appenda")
+    public void appendAnAWithoutWord (){
+    }
+
 }
