@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 public class MyRestController {
 
@@ -46,6 +48,16 @@ public class MyRestController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @GetMapping("/appenda")
     public void appendAnAWithoutWord (){
+    }
+
+    @PostMapping("/dountil/{action}")
+    public Object doUntil (@RequestBody Map<String, Integer> doUntil, @PathVariable("action") String word){
+        if(word.equals("factor")){
+            return myService.doUntilFactor(doUntil);
+        } else if(word.equals("sum")){
+            return myService.doUntilSum(doUntil);
+        }
+        return new ErrorMessage("Please provide a number!");
     }
 
 }
