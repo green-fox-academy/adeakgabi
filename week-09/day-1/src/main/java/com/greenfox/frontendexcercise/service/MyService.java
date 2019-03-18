@@ -15,4 +15,9 @@ public class MyService {
         return newMap;
     }
 
+    public Map<String, String> greetUser(String name, String title) {
+        Map<String, String> newMap = new HashMap<>();
+        newMap.put("welcome_message", "Oh, hi there " + name + ", my dear " + title +"!");
+        return newMap;
+    }
 }
