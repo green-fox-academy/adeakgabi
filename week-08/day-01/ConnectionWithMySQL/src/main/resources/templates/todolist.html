@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
-<body class="container-fluid" >
+<body class="container" >
 <header style="text-align: center">
     <h1 style="text-transform: uppercase"> Todos for today </h1>
     <form action="#" th:action="@{'/todo/add'}" th:method="get">
@@ -25,7 +24,7 @@
         <tr th:each="todo : ${todos}" >
             <td class="col-md-1" th:text="${todo.id}"></td>
             <td class="col-md-5" th:text="${todo.title}"></td>
-            <td class="col-md-1" th:text="${todo.done}"> </td>
+            <td class="col-md-1"  th:text="${todo.done}"> </td>
             <td class="col-md-1" th:text="${todo.urgent}"></td>
             <td class="col-md-2">
                 <form action="#" th:action="@{'/todo/'+${todo.id}+'/delete'}" th:method="delete">
