@@ -3,6 +3,7 @@ package com.greenfox.frontendexcercise.controller;
 import com.greenfox.frontendexcercise.error.ErrorMessage;
 import com.greenfox.frontendexcercise.model.AppendA;
 import com.greenfox.frontendexcercise.model.Arrayss;
+import com.greenfox.frontendexcercise.model.Log;
 import com.greenfox.frontendexcercise.service.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,7 @@ public class MyRestController {
         if(number == null){
             return new ErrorMessage("Please provide an input!");
         }
-
+        myService.saveLogObject(new Log("/doubling", "input" + number ));
         return myService.doubleInputNum(number);
     }
 
@@ -38,11 +39,13 @@ public class MyRestController {
         } else if(title == null){
             return new ErrorMessage("Please provide a title!");
         }
+        myService.saveLogObject(new Log("/greeter", "name= " + name + "title= " + title));
         return myService.greetUser(name, title);
     }
 
     @GetMapping("/appenda/{appendable}")
     public Object appendAnA (@PathVariable ("appendable") String word){
+        myService.saveLogObject((new Log("/appenda/" + word, word)));
         return new AppendA(word);
     }
 
@@ -54,8 +57,10 @@ public class MyRestController {
     @PostMapping("/dountil/{action}")
     public Object doUntil (@RequestBody Map<String, Integer> doUntil, @PathVariable("action") String word){
         if(word.equals("factor")){
+            myService.saveLogObject(new Log("/dountil/" + word, doUntil + " , " + word));
             return myService.doUntilFactor(doUntil);
         } else if(word.equals("sum")){
+            myService.saveLogObject(new Log("/dountil/" + word, doUntil + " , " + word));
             return myService.doUntilSum(doUntil);
         }
         return new ErrorMessage("Please provide a number!");
@@ -64,6 +69,7 @@ public class MyRestController {
     @PostMapping(value = "/arrays")
     public Object arrayHandler (@RequestBody Arrayss arrayss){
         if(arrayss.getWhat().equals("sum")){
+            myService.saveLogObject(new Log("/arrays",  arrayss.getNumbers().toString()));
             return myService.sumOfNumbers(arrayss.getNumbers());
         } else if(arrayss.getWhat().equals("multiply")){
             return myService.multipliedNumbers(arrayss.getNumbers());

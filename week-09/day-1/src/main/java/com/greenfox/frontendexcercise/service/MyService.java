@@ -1,5 +1,8 @@
 package com.greenfox.frontendexcercise.service;
 
+import com.greenfox.frontendexcercise.model.Log;
+import com.greenfox.frontendexcercise.repository.LogRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -7,6 +10,13 @@ import java.util.Map;
 
 @Service
 public class MyService {
+
+    LogRepository logRepository;
+
+    @Autowired
+    public MyService(LogRepository logRepository){
+        this.logRepository = logRepository;
+    }
 
     public Map<String, Integer> doubleInputNum(int number){
         Map<String, Integer> newMap = new HashMap<>();
@@ -70,6 +80,10 @@ public class MyService {
             doubledNumbers[i] = numbers[i]*2;
         }
         return doubledNumbers;
+    }
+
+    public void saveLogObject(Log log){
+        logRepository.save(log);
     }
 
 

@@ -16,9 +16,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(MyRestController.class)
@@ -29,10 +27,6 @@ public class RestControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-
-    private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
-            MediaType.APPLICATION_JSON.getSubtype(),
-            Charset.forName("utf8"));
 
     @Test
     public void doublingNumber_doublesInput() throws Exception{
@@ -48,4 +42,27 @@ public class RestControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.result")
                         .value(6));
     }
+
+    @Test
+    public void greeter_isGreetingTheUser() throws Exception{
+        when(myService.greetUser("Gabi", "student"))
+                .thenReturn(new HashMap<String, String>(){{
+                    put("welcome_message", "Oh, hi there Gabi, my dear student!");
+                }});
+        mockMvc.perform(
+                get("/greeter?name=Gabi&title=student"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.['welcome_message']")
+                .value("Oh, hi there Gabi, my dear student!"));
+
+    }
+
+    @Test
+    public void appenda_returnsWord_WithAppendA() throws Exception{
+        mockMvc.perform(
+                get("/appenda/macsk"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.appended")
+                .value("macska"));
+    }
+
+
 }
