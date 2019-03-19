@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.Map;
 
 @RestController
@@ -69,7 +70,7 @@ public class MyRestController {
     @PostMapping(value = "/arrays")
     public Object arrayHandler (@RequestBody Arrayss arrayss){
         if(arrayss.getWhat().equals("sum")){
-            myService.saveLogObject(new Log("/arrays",  arrayss.getNumbers().toString()));
+            myService.saveLogObject(new Log("/arrays", Arrays.toString(arrayss.getNumbers())));
             return myService.sumOfNumbers(arrayss.getNumbers());
         } else if(arrayss.getWhat().equals("multiply")){
             return myService.multipliedNumbers(arrayss.getNumbers());

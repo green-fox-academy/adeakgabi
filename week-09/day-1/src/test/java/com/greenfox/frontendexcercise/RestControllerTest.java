@@ -11,12 +11,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import static org.mockito.ArgumentMatchers.*;
 
-import java.nio.charset.Charset;
 import java.util.HashMap;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(MyRestController.class)
@@ -63,6 +64,24 @@ public class RestControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.appended")
                 .value("macska"));
     }
+
+    @Test
+    public void dountilSum_returnsSum() throws Exception{
+        when (myService.doUntilSum((HashMap<String, Integer>)notNull()))
+                .thenReturn(new HashMap<String, Integer>(){{
+                    put("until", 5);
+                    put("result", 15);
+                }});
+
+        mockMvc.perform(
+                post("/dountil/sum")
+                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .content("{\"until\":5}"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.result")
+                .value(15));
+    }
+
+
 
 
 }
