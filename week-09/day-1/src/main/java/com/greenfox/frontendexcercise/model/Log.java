@@ -46,7 +46,6 @@ public class Log {
         this.endpoint = endpoint;
     }
 
-    @JsonIgnore
     public String getData() {
         return data;
     }
@@ -55,6 +54,7 @@ public class Log {
         this.data = data;
     }
 
+    @JsonIgnore
     public String getCreatedAt() {
         return createdAt;
     }

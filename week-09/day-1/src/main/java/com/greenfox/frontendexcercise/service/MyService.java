@@ -5,7 +5,9 @@ import com.greenfox.frontendexcercise.repository.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -84,6 +86,13 @@ public class MyService {
 
     public void saveLogObject(Log log){
         logRepository.save(log);
+    }
+
+
+    public List<Log> getAllLogs() {
+        List<Log> allLogs = new ArrayList<>();
+        logRepository.findAll().forEach(log -> allLogs.add(log));
+        return allLogs;
     }
 
 

@@ -40,7 +40,7 @@ public class MyRestController {
         } else if(title == null){
             return new ErrorMessage("Please provide a title!");
         }
-        myService.saveLogObject(new Log("/greeter", "name= " + name + "title= " + title));
+        myService.saveLogObject(new Log("/greeter", " name= " + name + " title= " + title));
         return myService.greetUser(name, title);
     }
 
@@ -78,6 +78,11 @@ public class MyRestController {
             return myService.doubleAllNumbers(arrayss.getNumbers());
         }
         return new ErrorMessage("Please provide what to do with the numbers!");
+    }
+
+    @GetMapping("/log")
+    public Object getLogs (){
+        return myService.getAllLogs();
     }
 
 }
