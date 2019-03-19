@@ -6,7 +6,6 @@ import com.greenfox.frontendexcercise.model.Arrayss;
 import com.greenfox.frontendexcercise.service.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -26,6 +25,7 @@ public class MyRestController {
         if(number == null){
             return new ErrorMessage("Please provide an input!");
         }
+
         return myService.doubleInputNum(number);
     }
 
