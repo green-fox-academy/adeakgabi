@@ -31,6 +31,7 @@ public class TodoController {
         model.addAttribute("todos", todoService.getAllActiveTodo(isActive));
         return "todolist";
     }
+
     @GetMapping("/add")
     public String getTodos(Model model){
         model.addAttribute("todo", new Todo());

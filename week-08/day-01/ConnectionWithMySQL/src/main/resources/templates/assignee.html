@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+<h2> Add new Assignee </h2>
+<form method="post" action="#" th:action="@{'/assignee/add'}" th:object="${assignee}">
+    <label for="name"> Name </label>
+    <input type="text" th:field="*{name}" id="name">
+    <label for="email"> email </label>
+    <input type="email" th:field="*{email}" id="email">
+    <input type="submit" value="Add assignee">
+</form>
+
+<div id="table">
+    <table>
+        <tr>
+            <th> Name </th>
+            <th> Email </th>
+        </tr>
+        <tr th:each="assignee : ${assignees}" >
+            <td class="col-md-1" th:text="${assignees.name}"></td>
+            <td class="col-md-5" th:text="${assignees.email}"></td>
+            <td class="col-md-2">
+                <form action="#" th:action="@{'/todo/assignee'+${assignees.id}+'/delete'}" th:method="delete">
+                    <input type="submit" class="btn btn-danger" value="delete">
+                </form>
+            </td>
+            <td class="col-md-2">
+                <form action="#" th:action="@{'/todo/assignee'+${assignees.id}+'/edit'}" th:method="get">
+                    <input type="submit" class="btn btn-primary" value="edit name">
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
