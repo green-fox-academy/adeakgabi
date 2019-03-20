@@ -57,4 +57,23 @@ public class TodoService {
         todoWithUpdatedInfo.setUrgent(todo.getUrgent());
         todoRepository.save(todoWithUpdatedInfo);
     }
+
+    public List<Todo> searchInTodos(String word){
+        return todoRepository.searchInTodos(word);
+    }
+
+
+
+
+
+    /* public List<Todo> searchInTodos(String word){
+        List<Todo> todosContainingTheSearchedWord = new ArrayList<>();
+
+       //    ez elvileg akkor jó ha nem DB-ból dolgozom
+
+       todoRepository.findAll().forEach(todo -> todosContainingTheSearchedWord.add(todo));
+
+        return todosContainingTheSearchedWord.stream()
+                        .filter(todo -> todo.getTitle().toLowerCase().contains(word.toLowerCase()))
+                        .collect(Collectors.toList());  */
 }

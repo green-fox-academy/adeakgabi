@@ -12,18 +12,32 @@
         <input type="submit" class="btn btn-warning" value="Add new todo">
     </form>
 </header>
+
+<form action="#" th:action="@{'/todo/search'}" th:method="post">
+    <div class="input-group md-form form-group-lg form-2 pl-0">
+
+        <!-- a lentebbi input "name=word"-jével adom át a controllernek amit beír a user!!-->
+        <input class="form-control my-0 py-1 amber-border" type="text" name="word" placeholder="Search" aria-label="Search" >
+        <div class="input-group-append">
+        <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
+        </div>
+    </div>
+</form>
+
 <div id="table">
 
     <table>
         <tr>
             <th> Id </th>
-            <th> Action </th>
+            <th> Title </th>
+            <th> Content </th>
             <th> Done </th>
             <th> Urgent </th>
         </tr>
         <tr th:each="todo : ${todos}" >
             <td class="col-md-1" th:text="${todo.id}"></td>
             <td class="col-md-5" th:text="${todo.title}"></td>
+            <td class="col-md-5" th:text="${todo.content}"></td>
             <td class="col-md-1"  th:text="${todo.done}"> </td>
             <td class="col-md-1" th:text="${todo.urgent}"></td>
             <td class="col-md-2">

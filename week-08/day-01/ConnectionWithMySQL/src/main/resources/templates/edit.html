@@ -9,6 +9,7 @@
 <form method="post" th:action="@{'/todo/'+${todo.id}+'/edit'}" th:object="${todo}">
     <label for="title"> <br> Todo description: </label>
         <input type="text" th:field="*{title}" id="title">
+        <input type="text" th:field="*{content}" id="content">
 
     <label for="urgent"> <br> Urgent </label>
         <input type="checkbox" th:field="*{urgent}" id="urgent">

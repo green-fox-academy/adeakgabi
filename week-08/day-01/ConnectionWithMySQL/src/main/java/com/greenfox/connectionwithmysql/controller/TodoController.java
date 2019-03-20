@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/todo")
 public class TodoController {
@@ -25,7 +27,7 @@ public class TodoController {
     }
 
     @GetMapping (value = "/")
-    public String activeList(Model model, @RequestParam(value = "isActive", required = true) Boolean isActive ){
+    public String activeList(Model model, @RequestParam(value = "isActive", required = false) Boolean isActive ){
         model.addAttribute("todos", todoService.getAllActiveTodo(isActive));
         return "todolist";
     }
@@ -57,6 +59,12 @@ public class TodoController {
     public String postEdit(@ModelAttribute Todo todo) {
         todoService.updateTodo(todo);
         return "redirect:/todo/list";
+    }
+
+    @PostMapping("/search")
+    public String searchForGet(Model model, String word){
+        model.addAttribute("todos", todoService.searchInTodos(word));
+        return "todolist";
     }
 
 
