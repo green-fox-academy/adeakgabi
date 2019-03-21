@@ -1,5 +1,7 @@
 package com.greenfox.connectionwithmysql.model;
 
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,9 @@ public class Todo {
     private String content;
     private Boolean urgent = false;
     private Boolean done = false;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
+    private Assignee assignee;
 
     public Todo(){
     }
@@ -59,5 +64,14 @@ public class Todo {
 
     public void setDone(Boolean done) {
         this.done = done;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
+        assignee.addTodos(this);
     }
 }

@@ -17,6 +17,15 @@
     <label for="done"> <br> Done </label>
         <input type="checkbox" th:field="*{done}" id="done">
 
+    <label for="assign"> <br> Assign to: </label>
+    <select>
+        <option id="assign"> Unassigned... </option>
+        <option th:each="assignee : ${allAssignees}" th:text="${assignee.name}" th:value="${assignee.id}"
+                th:selected="${assignee.name} == ${todo.assignee}"> </option>
+
+
+    </select>
+
     <p></p>
         <input type="submit" value="submit">
 

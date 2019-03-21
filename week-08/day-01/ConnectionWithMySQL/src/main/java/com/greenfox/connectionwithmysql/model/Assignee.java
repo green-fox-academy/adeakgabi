@@ -14,7 +14,7 @@ public class Assignee {
     private String name;
     private String email;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, mappedBy = "assignee")
     private List<Todo> todos;
 
     public Assignee() {
@@ -55,5 +55,9 @@ public class Assignee {
 
     public void setTodos(List<Todo> todos) {
         this.todos = todos;
+    }
+
+    public void addTodos(Todo todo){
+        this.todos.add(todo);
     }
 }

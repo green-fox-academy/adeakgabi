@@ -1,6 +1,7 @@
 package com.greenfox.connectionwithmysql.controller;
 
 import com.greenfox.connectionwithmysql.model.Todo;
+import com.greenfox.connectionwithmysql.service.AssigneeService;
 import com.greenfox.connectionwithmysql.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,12 @@ import org.springframework.web.bind.annotation.*;
 public class TodoController {
 
     private TodoService todoService;
+    private AssigneeService assigneeService;
 
     @Autowired
-    public TodoController(TodoService todoService) {
+    public TodoController(TodoService todoService, AssigneeService assigneeService) {
         this.todoService = todoService;
+        this.assigneeService = assigneeService;
     }
 
     @GetMapping (value = {"/list", ""})
@@ -52,6 +55,7 @@ public class TodoController {
     @GetMapping("/{id}/edit")
     public String editTodos(Model model, @PathVariable("id") Long id){
         model.addAttribute("todo", todoService.getTodo(id));
+        model.addAttribute("allAssignees", assigneeService.getAllAssignees());
         return "edit";
     }
 

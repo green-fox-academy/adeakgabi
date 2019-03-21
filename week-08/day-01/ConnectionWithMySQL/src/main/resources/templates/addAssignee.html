@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body class="container">
+<header>
+    <h1> Add new Assignee</h1>
+</header>
+
 <br/>
 <div>
     <form method="post" action="#" th:action="@{'/assignee/add'}" th:object="${newAssignee}">
@@ -12,7 +16,7 @@
         <input type="text" th:field="*{name}" id="name">
         <label for="email"> email </label>
         <input type="email" th:field="*{email}" id="email">
-        <input type="submit" value="Add assignee">
+        <input type="submit" class="btn btn-danger" value="Add assignee">
     </form>
 </div>
 
