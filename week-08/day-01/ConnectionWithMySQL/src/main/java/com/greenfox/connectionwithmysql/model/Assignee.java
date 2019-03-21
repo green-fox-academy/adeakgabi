@@ -17,6 +17,9 @@ public class Assignee {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Todo> todos;
 
+    public Assignee() {
+    }
+
     public Assignee(String name, String email) {
         this.name = name;
         this.email = email;

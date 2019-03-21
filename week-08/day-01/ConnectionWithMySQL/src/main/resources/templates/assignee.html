@@ -5,40 +5,51 @@
     <title>Todo List</title>
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
-<body>
-
-<h2> Add new Assignee </h2>
-<form method="post" action="#" th:action="@{'/assignee/add'}" th:object="${assignee}">
-    <label for="name"> Name </label>
-    <input type="text" th:field="*{name}" id="name">
-    <label for="email"> email </label>
-    <input type="email" th:field="*{email}" id="email">
-    <input type="submit" value="Add assignee">
-</form>
-
+<body class="container">
+<header>
+    <div>
+        <a class="col-md-2 btn btn-warning text-center" href="/assignee/add">Add new assignee</a>
+    </div>
+</header>
+<br/>
 <div id="table">
+<br/>
     <table>
         <tr>
             <th> Name </th>
             <th> Email </th>
         </tr>
         <tr th:each="assignee : ${assignees}" >
-            <td class="col-md-1" th:text="${assignees.name}"></td>
-            <td class="col-md-5" th:text="${assignees.email}"></td>
+            <td class="col-md-1" th:text="${assignee.name}"></td>
+            <td class="col-md-5" th:text="${assignee.email}"></td>
             <td class="col-md-2">
-                <form action="#" th:action="@{'/todo/assignee'+${assignees.id}+'/delete'}" th:method="delete">
+                <form action="#" th:action="@{'/assignee'+${assignee.id}+'/delete'}" th:method="delete">
                     <input type="submit" class="btn btn-danger" value="delete">
                 </form>
             </td>
             <td class="col-md-2">
-                <form action="#" th:action="@{'/todo/assignee'+${assignees.id}+'/edit'}" th:method="get">
+                <form action="#" th:action="@{'/assignee'+${assignee.id}+'/edit'}" th:method="get">
                     <input type="submit" class="btn btn-primary" value="edit name">
                 </form>
             </td>
         </tr>
     </table>
 </div>
+<br/>
 
+<!--
+<div>
+<form method="post" action="#" th:action="@{'/assignee/add'}" th:object="${newAssignee}">
+    <label for="name"> Name </label>
+    <input type="text" th:value="*{name}" id="name">
+    <label for="email"> email </label>
+    <input type="email" th:value="*{email}" id="email">
+    <input type="submit" value="Add assignee">
+</form>
+</div>
+-->
 
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>
