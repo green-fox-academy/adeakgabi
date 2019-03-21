@@ -23,12 +23,12 @@
             <td class="col-md-1" th:text="${assignee.name}"></td>
             <td class="col-md-5" th:text="${assignee.email}"></td>
             <td class="col-md-2">
-                <form action="#" th:action="@{'/assignee'+${assignee.id}+'/delete'}" th:method="delete">
+                <form action="#" th:action="@{'/assignee/'+${assignee.id}+'/delete'}" th:method="delete">
                     <input type="submit" class="btn btn-danger" value="delete">
                 </form>
             </td>
             <td class="col-md-2">
-                <form action="#" th:action="@{'/assignee'+${assignee.id}+'/edit'}" th:method="get">
+                <form action="#" th:action="@{'/assignee/'+${assignee.id}+'/edit'}" th:method="get">
                     <input type="submit" class="btn btn-primary" value="edit name">
                 </form>
             </td>
