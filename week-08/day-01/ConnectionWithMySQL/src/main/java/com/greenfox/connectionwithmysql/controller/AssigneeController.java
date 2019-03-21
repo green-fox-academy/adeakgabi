@@ -1,6 +1,7 @@
 package com.greenfox.connectionwithmysql.controller;
 
 import com.greenfox.connectionwithmysql.model.Assignee;
+import com.greenfox.connectionwithmysql.model.Todo;
 import com.greenfox.connectionwithmysql.service.AssigneeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,18 @@ public class AssigneeController {
     @RequestMapping(value = "assignee/{id}/delete", method = RequestMethod.DELETE)
     public String delete(@PathVariable("id") Long id) {
         assigneeService.deleteAssignee(id);
+        return "redirect:/assignee";
+    }
+
+    @GetMapping("/assignee/{id}/edit")
+    public String editAssignee(Model model, @PathVariable("id") Long id){
+        model.addAttribute("assignee", assigneeService.getAssignee(id));
+        return "editAssignee";
+    }
+
+    @PostMapping("assignee/{id}/edit")
+    public String postEdit(@ModelAttribute Assignee assignee) {
+        assigneeService.updateAssignee(assignee);
         return "redirect:/assignee";
     }
 }

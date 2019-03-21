@@ -33,4 +33,16 @@ public class AssigneeService {
     public void deleteAssignee(Long id) {
         assigneeRepository.deleteById(id);
     }
+
+    public Object getAssignee(Long id) {
+        Assignee assignee = assigneeRepository.findById(id).get();
+        return assignee;
+    }
+
+    public void updateAssignee(Assignee assignee) {
+        Assignee updatedAssignee = assigneeRepository.findById(assignee.getId()).get();
+        updatedAssignee.setName(assignee.getName());
+        assigneeRepository.save(updatedAssignee);
+    }
+
 }
