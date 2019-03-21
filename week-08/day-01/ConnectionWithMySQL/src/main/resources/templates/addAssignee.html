@@ -9,9 +9,9 @@
 <div>
     <form method="post" action="#" th:action="@{'/assignee/add'}" th:object="${newAssignee}">
         <label for="name"> Name </label>
-        <input type="text" th:value="*{name}" id="name">
+        <input type="text" th:field="*{name}" id="name">
         <label for="email"> email </label>
-        <input type="email" th:value="*{email}" id="email">
+        <input type="email" th:field="*{email}" id="email">
         <input type="submit" value="Add assignee">
     </form>
 </div>
