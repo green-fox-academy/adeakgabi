@@ -23,7 +23,6 @@
         <option th:each="assignee : ${allAssignees}" th:text="${assignee.name}" th:value="${assignee.id}"
                 th:selected="${assignee.name} == ${todo.assignee}"> </option>
 
-
     </select>
 
     <p></p>

@@ -55,6 +55,7 @@ public class TodoService {
         todoWithUpdatedInfo.setTitle(todo.getTitle());
         todoWithUpdatedInfo.setDone(todo.getDone());
         todoWithUpdatedInfo.setUrgent(todo.getUrgent());
+        todoWithUpdatedInfo.setAssignee(todo.getAssignee());
         todoRepository.save(todoWithUpdatedInfo);
     }
 
