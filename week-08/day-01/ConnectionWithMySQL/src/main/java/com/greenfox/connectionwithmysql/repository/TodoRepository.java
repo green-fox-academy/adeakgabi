@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface TodoRepository extends CrudRepository<Todo, Long> {
 
-    @Query(nativeQuery = true, value = "SELECT * FROM todo WHERE LOWER(todo.title) LIKE %:word%")
+    @Query(nativeQuery = true, value = "SELECT * FROM todo WHERE LOWER(todo.title) OR LOWER (todo.content)LIKE %:word%")
     public List<Todo> searchInTodos(@Param("word") String word);
 
 }
