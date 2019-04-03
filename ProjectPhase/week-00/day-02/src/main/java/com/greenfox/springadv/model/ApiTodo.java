@@ -57,4 +57,13 @@ public class ApiTodo {
     public void setUrgent(boolean urgent) {
         this.urgent = urgent;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+        user.addTodos(this);
+    }
 }

@@ -14,15 +14,15 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-    private List<ApiTodo> apiTodo;
+    private List<ApiTodo> todoList;
 
     public User() {
     }
 
-    public User(String userName, String password, List<ApiTodo> apiTodo) {
+    public User(String userName, String password, List<ApiTodo> todoList) {
         this.userName = userName;
         this.password = password;
-        this.apiTodo = apiTodo;
+        this.todoList = todoList;
     }
 
     public Long getId() {
@@ -49,11 +49,15 @@ public class User {
         this.password = password;
     }
 
-    public List<ApiTodo> getApiTodo() {
-        return apiTodo;
+    public List<ApiTodo> getTodoList() {
+        return todoList;
     }
 
-    public void setApiTodo(List<ApiTodo> apiTodo) {
-        this.apiTodo = apiTodo;
+    public void setTodoList(List<ApiTodo> apiTodo) {
+        this.todoList = apiTodo;
+    }
+
+    public void addTodos(ApiTodo apiTodo) {
+        this.todoList.add(apiTodo);
     }
 }
