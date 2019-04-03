@@ -5,6 +5,9 @@ import com.greenfox.springadv.repository.ApiTodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ApiTodoService {
 
@@ -17,5 +20,11 @@ public class ApiTodoService {
 
     public void add(ApiTodo apiTodo) {
         apiTodoRepository.save(apiTodo);
+    }
+
+    public List<ApiTodo> listAll() {
+        List<ApiTodo> todoList = new ArrayList<>();
+                apiTodoRepository.findAll().forEach(todoList::add);
+        return todoList;
     }
 }

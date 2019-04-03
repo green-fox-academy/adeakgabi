@@ -3,10 +3,9 @@ package com.greenfox.springadv.controller;
 import com.greenfox.springadv.model.ApiTodo;
 import com.greenfox.springadv.service.ApiTodoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class MyRestController {
@@ -24,8 +23,13 @@ public class MyRestController {
     }
 
     @PostMapping("/add")
-    public Object addNewTodo(@RequestParam ApiTodo apiTodo){
+    public Object addNewTodo(@RequestBody ApiTodo apiTodo){
         apiTodoService.add(apiTodo);
         return "Your todo is successfully saved!";
+    }
+
+    @GetMapping("/list")
+    public List<ApiTodo> listTodos(){
+        return apiTodoService.listAll();
     }
 }
