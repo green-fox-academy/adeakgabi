@@ -16,6 +16,9 @@ public class ApiTodo {
     private String description;
     private boolean urgent;
 
+    public ApiTodo(){
+    }
+
     public ApiTodo(String title, String description, boolean urgent) {
         this.title = title;
         this.description = description;
