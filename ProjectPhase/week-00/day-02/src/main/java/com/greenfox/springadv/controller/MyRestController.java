@@ -39,6 +39,11 @@ public class MyRestController {
 
     @PostMapping("/register")
     public Object register(@RequestBody User user){
+        if(user.getUserName() == null || user.getUserName().isEmpty()){
+            return "Please provide a username";
+        } else if(user.getPassword() == null || user.getPassword().isEmpty()){
+            return "Please give a password!";
+        }
         userService.add(user);
         return "Your registration is successful!";
     }
