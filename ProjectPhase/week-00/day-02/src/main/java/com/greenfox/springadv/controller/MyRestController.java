@@ -7,7 +7,9 @@ import com.greenfox.springadv.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class MyRestController {
@@ -22,29 +24,26 @@ public class MyRestController {
     }
 
     @GetMapping("/")
-    public String home(){
+    public String home() {
         return "hi there!";
     }
 
     @PostMapping("/add")
-    public Object addNewTodo(@RequestBody ApiTodo apiTodo){
+    public Object addNewTodo(@RequestBody ApiTodo apiTodo) {
         apiTodoService.add(apiTodo);
         return "Your todo is successfully saved!";
     }
 
     @GetMapping("/list")
-    public List<ApiTodo> listTodos(){
+    public List<ApiTodo> listTodos() {
         return apiTodoService.listAll();
     }
 
     @PostMapping("/register")
-    public Object register(@RequestBody User user){
-        if(user.getUserName() == null || user.getUserName().isEmpty()){
-            return "Please provide a username";
-        } else if(user.getPassword() == null || user.getPassword().isEmpty()){
-            return "Please give a password!";
-        }
+    public Object register(@RequestBody User user) {
+        Map<String, String> userMessage = new HashMap<>();
         userService.add(user);
-        return "Your registration is successful!";
+        userMessage.put("message", userService.message);
+        return userMessage;
     }
 }

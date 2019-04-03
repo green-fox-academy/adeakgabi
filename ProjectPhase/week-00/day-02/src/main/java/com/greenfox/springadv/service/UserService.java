@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+    public String message;
+
     private UserRepository userRepository;
 
     @Autowired
@@ -16,10 +18,16 @@ public class UserService {
     }
 
     public void add(User user) {
-        if(userRepository.findUserByUserNameEquals(user.getUserName()).size() == 0){
-            userRepository.save(user);
+        this.message = "";
+        if (user.getUserName() == null || user.getUserName().isEmpty()) {
+            this.message = "Please provide a username";
+        } else if (user.getPassword() == null || user.getPassword().isEmpty()) {
+            this.message = "Please give a password!";
+        } else if (userRepository.findUserByUserNameEquals(user.getUserName()).size() != 0) {
+            this.message = "This username is already used!";
         } else {
-            System.out.println("This username is already used!");
+            userRepository.save(user);
+            this.message = "Your registration was successful";
         }
     }
 }

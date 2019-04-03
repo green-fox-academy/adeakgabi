@@ -17,7 +17,7 @@ public class ApiTodo {
     @ManyToOne
     private User user;
 
-    public ApiTodo(){
+    public ApiTodo() {
     }
 
     public ApiTodo(String title, String description, boolean urgent) {
