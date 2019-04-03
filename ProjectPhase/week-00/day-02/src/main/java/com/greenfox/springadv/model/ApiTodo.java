@@ -1,11 +1,9 @@
 package com.greenfox.springadv.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "api_todo")
 public class ApiTodo {
 
     @Id
@@ -15,6 +13,9 @@ public class ApiTodo {
     private String title;
     private String description;
     private boolean urgent;
+
+    @ManyToOne
+    private User user;
 
     public ApiTodo(){
     }
