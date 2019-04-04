@@ -27,7 +27,7 @@ public class UserService {
             this.message = "Please provide a username";
         } else if (user.getPassword() == null || user.getPassword().isEmpty()) {
             this.message = "Please give a password!";
-        } else if (userRepository.findUserByUserNameEquals(user.getUserName()).size() != 0) {
+        } else if (userRepository.findUserByUserName(user.getUserName()) != null) {
             this.message = "This username is already used!";
         } else {
             userRepository.save(user);
@@ -39,5 +39,9 @@ public class UserService {
         List<DTO> dtoUsers = new ArrayList<>();
         userRepository.findAll().forEach(user -> dtoUsers.add(new DTO(user.getId(), user.getUserName())));
         return dtoUsers;
+    }
+
+    public User findUser(String name){
+        return userRepository.findUserByUserName(name);
     }
 }
