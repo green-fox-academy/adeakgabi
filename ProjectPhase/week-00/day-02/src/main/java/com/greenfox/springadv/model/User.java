@@ -1,6 +1,9 @@
 package com.greenfox.springadv.model;
 
+import org.hibernate.secure.spi.GrantedPermission;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -65,4 +68,6 @@ public class User {
     public void addTodos(ApiTodo apiTodo) {
         this.todoList.add(apiTodo);
     }
+
+ //   public Collection<? extends GrantedAut
 }
