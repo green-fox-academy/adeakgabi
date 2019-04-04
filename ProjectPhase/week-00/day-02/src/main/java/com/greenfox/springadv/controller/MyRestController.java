@@ -1,6 +1,7 @@
 package com.greenfox.springadv.controller;
 
 import com.greenfox.springadv.model.ApiTodo;
+import com.greenfox.springadv.model.DTO;
 import com.greenfox.springadv.model.User;
 import com.greenfox.springadv.service.ApiTodoService;
 import com.greenfox.springadv.service.UserService;
@@ -35,8 +36,9 @@ public class MyRestController {
     }
 
     @GetMapping("/list")
-    public List<ApiTodo> listTodos() {
-        return apiTodoService.listAll();
+    public List<DTO> listTodos() {
+        return userService.listAll();
+       // return apiTodoService.listAll();
     }
 
     @PostMapping("/register")

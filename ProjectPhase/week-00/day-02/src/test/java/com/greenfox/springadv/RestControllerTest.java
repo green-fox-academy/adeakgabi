@@ -1,10 +1,8 @@
 package com.greenfox.springadv;
 
 import com.greenfox.springadv.controller.MyRestController;
-import com.greenfox.springadv.model.User;
 import com.greenfox.springadv.service.ApiTodoService;
 import com.greenfox.springadv.service.UserService;
-import com.oracle.webservices.internal.api.message.ContentType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +11,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.nio.charset.Charset;
 
-import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
-
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @RunWith(SpringRunner.class)
@@ -45,7 +39,7 @@ public class RestControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"userName\": null, \"password\": \"12345\"}"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message")
-                .value("Please provide a username"));
+                        .value("Please provide a username"));
 
     }
 }

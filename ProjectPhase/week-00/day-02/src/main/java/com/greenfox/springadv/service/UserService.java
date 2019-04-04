@@ -1,9 +1,13 @@
 package com.greenfox.springadv.service;
 
+import com.greenfox.springadv.model.DTO;
 import com.greenfox.springadv.model.User;
 import com.greenfox.springadv.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -29,5 +33,11 @@ public class UserService {
             userRepository.save(user);
             this.message = "Your registration was successful";
         }
+    }
+
+    public List<DTO> listAll(){
+        List<DTO> dtoUsers = new ArrayList<>();
+        userRepository.findAll().forEach(user -> dtoUsers.add(new DTO(user.getId(), user.getUserName())));
+        return dtoUsers;
     }
 }
