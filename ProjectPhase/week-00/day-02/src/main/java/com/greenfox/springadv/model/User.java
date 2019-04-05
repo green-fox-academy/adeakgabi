@@ -18,13 +18,18 @@ public class User {
     private String password;
     private boolean enabled;
 
+ /*   @JoinColumn(name = "ROLE_ID", referencedColumnName = "id")
+    private Role role;  */
+
+
+    @ManyToMany(fetch = FetchType.EAGER )
+    @JoinTable(name = "USER_ROLES",
+            joinColumns =  @JoinColumn(name ="USER_ID", referencedColumnName = "id"),inverseJoinColumns= @JoinColumn(name="ROLE_ID", referencedColumnName = "id"))
+    private List<Role> roles;
+
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<ApiTodo> todoList;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinTable(name = "USER_ROLES",
-            joinColumns =  @JoinColumn(name ="USER_ID"),inverseJoinColumns= @JoinColumn(name="ROLE_ID"))
-    private Role role;
 
     public User() {
     }
@@ -88,11 +93,11 @@ public class User {
         this.enabled = enabled;
     }
 
-    public Role getRole() {
-        return role;
+    public List<Role> getRole() {
+        return roles;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRole(List<Role> roles) {
+        this.roles = roles;
     }
 }
