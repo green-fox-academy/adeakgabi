@@ -1,11 +1,11 @@
 package com.greenfox.springadv.model;
 
-import org.hibernate.secure.spi.GrantedPermission;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -18,11 +18,13 @@ public class User {
     private String password;
     private boolean enabled;
 
- /*   @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.All)
-    private Role role; */
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<ApiTodo> todoList;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinTable(name = "USER_ROLES",
+            joinColumns =  @JoinColumn(name ="USER_ID"),inverseJoinColumns= @JoinColumn(name="ROLE_ID"))
+    private Role role;
 
     public User() {
     }
@@ -85,12 +87,12 @@ public class User {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-/*
+
     public Role getRole() {
         return role;
     }
 
     public void setRole(Role role) {
         this.role = role;
-    } */
+    }
 }

@@ -36,7 +36,7 @@ public class MyRestController {
     }
 
     @GetMapping("/list")
-    public List<DTO> listTodos() {
+    public List<DTO> listUsers() {
         return userService.listAll();
        // return apiTodoService.listAll();
     }
