@@ -48,4 +48,11 @@ public class MyRestController {
         userMessage.put("message", userService.message);
         return userMessage;
     }
+
+    @GetMapping("/admin")
+    public Object adminMessage(){
+        return "Hi there, my favorite admin!";
+    }
+
+
 }

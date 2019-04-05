@@ -16,6 +16,10 @@ public class User {
     private Long id;
     private String userName;
     private String password;
+    private boolean enabled;
+
+ /*   @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.All)
+    private Role role; */
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<ApiTodo> todoList;
@@ -73,4 +77,20 @@ public class User {
     public Collection<? extends GrantedAuthority> getAuthorities(){
         return null;
     }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+/*
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    } */
 }
