@@ -15,6 +15,9 @@ public class Role {
   //  @Enumerated(EnumType.STRING)
     private String name;
 
+    @OneToMany(mappedBy = "role")
+    private List<User> users;
+
     public Long getId() {
         return id;
     }

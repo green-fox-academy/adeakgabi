@@ -18,8 +18,8 @@ public class User {
     private String password;
     private boolean enabled;
 
- /*   @JoinColumn(name = "ROLE_ID", referencedColumnName = "id")
-    private Role role;  */
+    @ManyToOne
+    private Role role;
 
 
     @ManyToMany(fetch = FetchType.EAGER )
@@ -93,11 +93,19 @@ public class User {
         this.enabled = enabled;
     }
 
-    public List<Role> getRole() {
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRole(List<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public Role getRole() {
+        return role;
     }
 }
