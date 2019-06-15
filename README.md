@@ -1,6 +1,6 @@
 # adeakgabi
-[p2p-chat](https://github.com/adeakgabi/p2p-chat)
+[FedEx project - Lost & Found pet application](https://github.com/adeakgabi/aragonite-lassie)
 <br>
-[teaser-syllabus](https://github.com/green-fox-academy/teaser-syllabus)
+[Implement JWT authentication](https://github.com/adeakgabi/JWT)
 <br>
 
